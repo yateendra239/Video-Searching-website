@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+</html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Main page</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+
+</head>
+<body  class="h-100">
+
+  <nav class="navbar navbar-expand-lg bg-dark text-white">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class= "active">
+          <a class="nav-link" style="color: whitesmoke; text-decoration-style: wavy;"href="#">
+          Video Searching Website
+          </a>
+        </li>
+
+        <li class= "active">
+          <a class="nav-link" style="color: whitesmoke; text-decoration-style: wavy;"href="#">
+          <span style="color: white">Home</span>
+          </a>
+        </li>
+        <li class= "active">
+          <a class="nav-link" style="color: whitesmoke; text-decoration-style: wavy;"href="add_category.html">
+            <span style="color: white">New category</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="dropdown navbar-right">
+        <button
+        id="option-id"
+        class="btn btn-light dropdown-toggle bg-dark text-white"
+        type="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false">
+          Options
+        </button>
+
+        <div
+        class="dropdown-menu"
+        aria-labelledby="option-id">
+        <a
+        class="dropdown-items" id= "btn-logout" href="signin.html">
+        Logout
+      </a>
+      </div>
+      </div>
+
+
+
+    </div>
+  </nav>
+
+   <div class ="row h-100 bg-light">
+     <div class="col-lg-0 bg-secondry">
+       <ul class="nav flex-column">
+
+       </ul>
+     </div>
+
+     <div class="col-lg-12">
+       <div class="container" id="container">
+
+       </div>
+     </div>
+   </div>
+
+
+
+   <h1>
+        Congratulations.You are logged in successfully.
+    </h1>
+    <script src ="signin.js"></script>
+
+    <script>
+      firebase.auth().onAuthStateChanged(function(user)
+      {
+          if(!user)
+          {
+            window.location.hash ="signin.html";
+          }
+      });
+    </script>
+</body>
